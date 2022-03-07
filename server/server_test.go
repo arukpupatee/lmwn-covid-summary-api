@@ -29,7 +29,7 @@ func TestResponseBodyFormat(t *testing.T) {
 	req, _ := http.NewRequest("GET", "/covid/summary", nil)
 	res := testSendHTTPRequest(req)
 
-	resBody := Response{}
+	resBody := Summary{}
 
 	err := json.Unmarshal(res.Body.Bytes(), &resBody)
 
