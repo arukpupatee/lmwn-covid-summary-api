@@ -1,4 +1,4 @@
-package external
+package server
 
 import (
 	"crypto/tls"
