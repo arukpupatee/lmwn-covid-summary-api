@@ -7,18 +7,6 @@ import (
 	"testing"
 )
 
-type province map[string]int
-type ageGroup struct {
-	Young   int `json:"0-30"`
-	Middle  int `json:"31-60"`
-	Old     int `json:"61+"`
-	Unknown int `json:"N/A"`
-}
-type Response struct {
-	Province province
-	AgeGroup ageGroup
-}
-
 func testSendHTTPRequest(req *http.Request) *httptest.ResponseRecorder {
 	router := initRouter()
 	res := httptest.NewRecorder()
@@ -48,4 +36,5 @@ func TestResponseBodyFormat(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Error '%v' when parse response body from GET /covid/summary", err)
 	}
+	// TODO: Validate response body schema
 }
