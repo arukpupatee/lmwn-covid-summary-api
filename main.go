@@ -1,9 +1,7 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import "github.com/arukpupatee/lmwn-covid-summary-api/server"
 
 func main() {
-	router := gin.Default()
-
-	router.Run("localhost:8080")
+	server.Init()
 }
