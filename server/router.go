@@ -2,7 +2,7 @@ package server
 
 import "github.com/gin-gonic/gin"
 
-func initRouter() *gin.Engine {
+func InitRouter() *gin.Engine {
 	router := gin.Default()
 
 	router.GET("/covid/summary", getCovidSummaryHandler)

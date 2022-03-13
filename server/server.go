@@ -1,7 +1,7 @@
 package server
 
 func Init() {
-	router := initRouter()
+	router := InitRouter()
 
 	router.Run("localhost:8080")
 }

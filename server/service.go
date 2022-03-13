@@ -3,7 +3,7 @@ package server
 import "github.com/arukpupatee/lmwn-covid-summary-api/external"
 
 type province map[string]int
-type ageGroup struct {
+type AgeGroup struct {
 	Young   int `json:"0-30"`
 	Middle  int `json:"31-60"`
 	Old     int `json:"61+"`
@@ -11,20 +11,20 @@ type ageGroup struct {
 }
 type Summary struct {
 	Province province
-	AgeGroup ageGroup
+	AgeGroup AgeGroup
 }
 
 const unknownAgeValue = 0
 const youngUpperBoundValue = 30
 const middleUpperBoundValue = 60
 
-func getCovidSummary() Summary {
+func GetCovidSummary() Summary {
 	// TODO: Handle error
 	covidCaseResponseBody, _ := external.FetchCovidCase()
 	covidCaseData := covidCaseResponseBody.Data
 
 	provinceData := province{}
-	ageGroupData := ageGroup{}
+	ageGroupData := AgeGroup{}
 
 	for _, data := range covidCaseData {
 		province := data.ProvinceEn

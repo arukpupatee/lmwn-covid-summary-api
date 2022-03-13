@@ -7,7 +7,7 @@ import (
 )
 
 func getCovidSummaryHandler(c *gin.Context) {
-	res := getCovidSummary()
+	res := GetCovidSummary()
 
 	c.JSON(http.StatusOK, res)
 }

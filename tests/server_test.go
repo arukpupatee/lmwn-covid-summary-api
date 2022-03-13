@@ -1,14 +1,16 @@
-package server
+package tests
 
 import (
 	"encoding/json"
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/arukpupatee/lmwn-covid-summary-api/server"
 )
 
 func testSendHTTPRequest(req *http.Request) *httptest.ResponseRecorder {
-	router := initRouter()
+	router := server.InitRouter()
 	res := httptest.NewRecorder()
 
 	router.ServeHTTP(res, req)
@@ -29,7 +31,7 @@ func TestResponseBodyFormat(t *testing.T) {
 	req, _ := http.NewRequest("GET", "/covid/summary", nil)
 	res := testSendHTTPRequest(req)
 
-	resBody := Summary{}
+	resBody := server.Summary{}
 
 	err := json.Unmarshal(res.Body.Bytes(), &resBody)
 

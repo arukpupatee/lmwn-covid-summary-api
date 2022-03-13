@@ -1,13 +1,15 @@
-package server
+package tests
 
 import (
 	"testing"
+
+	"github.com/arukpupatee/lmwn-covid-summary-api/server"
 )
 
 func TestGetCovidSummary(t *testing.T) {
-	summary := getCovidSummary()
+	summary := server.GetCovidSummary()
 
-	expectedSummary := Summary{
+	expectedSummary := server.Summary{
 		Province: map[string]int{
 			"Amnat Charoen":            17,
 			"Ang Thong":                36,
@@ -87,7 +89,7 @@ func TestGetCovidSummary(t *testing.T) {
 			"Yala":                     27,
 			"Yasothon":                 26,
 		},
-		AgeGroup: ageGroup{
+		AgeGroup: server.AgeGroup{
 			Young:   582,
 			Middle:  607,
 			Old:     769,
