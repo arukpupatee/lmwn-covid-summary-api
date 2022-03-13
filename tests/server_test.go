@@ -6,6 +6,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	"github.com/arukpupatee/lmwn-covid-summary-api/models"
 	"github.com/arukpupatee/lmwn-covid-summary-api/server"
 )
 
@@ -31,7 +32,7 @@ func TestResponseBodyFormat(t *testing.T) {
 	req, _ := http.NewRequest("GET", "/covid/summary", nil)
 	res := testSendHTTPRequest(req)
 
-	resBody := server.Summary{}
+	resBody := models.Summary{}
 
 	err := json.Unmarshal(res.Body.Bytes(), &resBody)
 
