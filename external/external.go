@@ -1,4 +1,4 @@
-package server
+package external
 
 import (
 	"crypto/tls"
@@ -25,7 +25,7 @@ type CovidCaseResponseBody struct {
 	Data []CovidCaseData
 }
 
-func fetchCovidCase() (covidCaseResponseBody CovidCaseResponseBody, err error) {
+func FetchCovidCase() (covidCaseResponseBody CovidCaseResponseBody, err error) {
 	covidCaseResponseBody = CovidCaseResponseBody{}
 
 	tr := &http.Transport{

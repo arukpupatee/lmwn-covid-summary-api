@@ -1,5 +1,7 @@
 package server
 
+import "github.com/arukpupatee/lmwn-covid-summary-api/external"
+
 type province map[string]int
 type ageGroup struct {
 	Young   int `json:"0-30"`
@@ -18,7 +20,7 @@ const middleUpperBoundValue = 60
 
 func getCovidSummary() Summary {
 	// TODO: Handle error
-	covidCaseResponseBody, _ := fetchCovidCase()
+	covidCaseResponseBody, _ := external.FetchCovidCase()
 	covidCaseData := covidCaseResponseBody.Data
 
 	provinceData := province{}
