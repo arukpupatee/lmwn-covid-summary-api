@@ -18,6 +18,5 @@
 ## How to test
 
 ```
-cd server
-go test
+go test ./tests
 ```
